@@ -1,5 +1,9 @@
 # Whatsapp Affirmer
 
+## v4.0
+
+Not everyone has locally installed AI, so let's decrease the dependencies a bit. Our chat bot can now rely on Hugging Face to generate its responses! As of June 2, 2025, one can use a free tier account for costs up to $0.10 which should on smaller models be plenty. The cost can be maintained by putting a limit on max tokens or instructing the model to generate "short" responses. At the moment, we do store all messages on Postgres, but the model is not instructed to maintain conversation history. That is, the current bot will be able to answer one-time questions and not recall context. 
+
 ## v3.0
 
 We now truly have AI functionality! OpenAI has no free-tier API interface, so I opted for a local language model using Ollama. Now, in addition to uvicorn and ngrok, you also need to locally run your favorite LLM by executing `ollama run mistral` on terminal. The model being used, along with the URL it will be run on, should be defined in the `.env` file. Also, the default behavior of the bot is now to send the LLM-generated response to the number that texted the bot. Note the assumption that we are using WhatsApp exclusively.
